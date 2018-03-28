@@ -4,7 +4,7 @@
 //
 //  Created by Mason Black on 2015-03-10.
 //  Copyright (c) 2015 Mason Black. All rights reserved.
-// Update morning Jan 20
+// Update Mar 26
 
 import UIKit
 import SpriteKit
@@ -32,7 +32,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // if we have a GameScene.sks file
+        // if we have a GameScene.sks file and it can be found
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             // Configure the view.
             let skView = self.view as! SKView

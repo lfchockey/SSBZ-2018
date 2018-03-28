@@ -18,14 +18,8 @@ struct Game {
     static var 🚀2 = Starship(playerNum: 2)
     
     // Array of student names.
-    static var students = ["Mr Black", "Brynne Allan", "Matthew Bennett", "Jacob Bland", "Kaylee Bogora", "Eric Duberville", "Daniel Gordon", "David Hogan", "Oksana Johnston", "Jason Little", "Jordan Maloney", "Greg Mitchell", "Owen Nichols", "Ben Seward", "Joey Tripp", "Dexter van Zyll de Jong", "Sherry Wang", "Spencer Wright", "Justin Yanosik"]
+    static var students = ["Mr Black", "Allan", "Apsey", "Babcock", "Birley", "Bland", "Bogora", "Brady", "Chen", "Cooke", "Dickson", "Dopson", "Ferguson", "Foster", "Galazzo", "Garvin", "Johnston", "Kelford", "Leung", "Mai", "Nichols", "Rakus", "Smith", "Snyder", "Thibault", "Thompson", "Tolentino", "Tripp", "Yanosik"]
     
-    // These are the categories that are used to detect collision/contact. (We are using an enumeration instead)
-//    static let starship1Category : UInt32 = 0x00
-//    static let missile1Category : UInt32 = 0x01
-//    static let starship2Category : UInt32 = 0x02
-//    static let missile2Category : UInt32 = 0x04
-//    static let worldCategory : UInt32 = 0x08
 }
 
 // An enumeration for the collision/contact detections for the different types of categories.
@@ -37,9 +31,8 @@ enum ColliderType: UInt32 {
     case space = 16
 }
 
-class PlayerPickerViewController: UIViewController, UIPickerViewDelegate {
-
-    
+class PlayerPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+ 
     // Connect the UIPickerView from the Storyboard - make the IBOutlet connection
     // Make sure to also connect the UIPickerView with the ViewController in the 
     //      Storyboard as both a Delegate and Datasource.
@@ -54,7 +47,7 @@ class PlayerPickerViewController: UIViewController, UIPickerViewDelegate {
         super.viewDidLoad()
         
         // Map all of the names from the 'students' array into an 'imageNames' array
-        imageNames = Game.students.map {("Starship-\($0)")}
+        imageNames = Game.students.map {("\($0)")}
         
         // Start assigning properties of the Starships
         Game.🚀1.name = Game.students[0]
@@ -69,9 +62,8 @@ class PlayerPickerViewController: UIViewController, UIPickerViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
     // returns the number of 'columns' to display in the PickerView.
-    func numberOfComponentsInPickerView(_ pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     

@@ -46,7 +46,6 @@ class Starship {
     
     // This function sets up all of the characteristics of the sprite once the proper player has been selected
     func setSprite(_ filename: String) {
-
         
         sprite = SKSpriteNode(imageNamed: imageName)            
         
@@ -90,8 +89,6 @@ class Starship {
         self.gun.position.y = self.sprite.size.height + 20
         self.gun.name = "gun"
         self.sprite.addChild(gun)
-
-      
     }
     
     //~~~ 
@@ -237,7 +234,7 @@ class Starship {
         
         // See if the Starship goes off the bottom of the screen.
         if sprite.position.y < 0 {
-            let topOfScreen = viewSize.y - sprite.size.height
+            let topOfScreen = viewSize.y //- sprite.size.height
             let moveStarship = SKAction.move(to: CGPoint(x: sprite.position.x, y: topOfScreen), duration: 0.01)
             let moveAction = SKAction.repeat(moveStarship, count: 1)
             sprite.run(moveAction)
@@ -255,6 +252,28 @@ class Starship {
     //~~~
     // This function fires the next missile that is available.
     func shoot (xSpeed: Double, ySpeed: Double) {
+        
+        // Loop through all of the missiles.
+        for i in missileNumber ..< self.TOTAL_MISSILES {
+            
+            // If a missile isn't being fired.
+            if !missiles[i].isBeingFired {
+                let gunPosition =  sprite.childNode(withName: "gun")!.convert(CGPoint.zero, to: sprite.parent!)
+                missiles[i].setSpeed(newSpeed: CGPoint(x: xSpeed, y: ySpeed), newPosition: gunPosition)
+                missiles[i].isBeingFired = true
+                break
+            }
+        }
+        
+        // Move on to the next missile
+        missileNumber += 1
+        if missileNumber >= TOTAL_MISSILES {
+            missileNumber = 0   // Reset the missile back to the first one if they've reached the end.
+        }
+    }
+    
+    // This function fires the next missile that is available.
+    func shoot (xSpeed: CGFloat, ySpeed: CGFloat) {
         
         // Loop through all of the missiles.
         for i in missileNumber ..< self.TOTAL_MISSILES {

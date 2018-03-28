@@ -14,12 +14,15 @@ protocol gameSceneDelegate {
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
+    
+    // ---------------- The following are the class variables (properties) for the Game Scene that make the game run --------------------
+    
     var viewController: GameViewController? // This pointer is needed to create segue back to PPVC after gameOver
     
     // Set up labels to display scores
-    let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-    let starship1Score = SKLabelNode(fontNamed: "Chalkduster")
-    let starship2Score = SKLabelNode(fontNamed: "Chalkduster")
+    let myLabel = SKLabelNode(fontNamed:"Kailasa")
+    let starship1Score = SKLabelNode(fontNamed: "Kailasa")
+    let starship2Score = SKLabelNode(fontNamed: "Kailasa")
     
     // An array of SKTextures for animating the explosions
     var explosionAnimation = [SKTexture]()
@@ -33,6 +36,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var gameOver = false
     var gameStarted = false
     
+    
+    // ------------- This function is called when the player's have been chosen ----------------
+    //      This is where all of the game variables are initialized and the game is set up
     override func didMove(to view: SKView) {
         self.scene?.isPaused = true   // Pause the game when we first get to the GameScene
         
@@ -83,7 +89,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Update the Starship1's score
         starship1Score.text = String(Game.🚀1.life)
         starship1Score.fontSize = 24
-        //starship1Score.position = CGPoint(x: p1Node.frame.width/2 + p1Node.position.x + 5, y:CGRectGetMaxY(self.frame) - 40);
         starship1Score.position = CGPoint(x: self.frame.maxX - 35, y:self.frame.maxY - 40);
         self.addChild(starship1Score)
         
@@ -143,10 +148,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameStarted = true  // the game has started
         myLabel.text = ""   // clear the label's text
         self.scene?.isPaused = false  // start the game.
-        
-//        for touch: AnyObject in touches {
-//
-//        }
 
     }
    
@@ -174,14 +175,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    // This function is called when two objects make contact with one another
+    //      In other words, a missile hits one of the StarShips
     func didBegin(_ contact: SKPhysicsContact) {
-        
         
         // Set the Nodes which contacted each other
         let firstNode = contact.bodyA.node as! SKSpriteNode
         let secondNode = contact.bodyB.node as! SKSpriteNode
         
-        //println("\(secondNode.name!) hits \(firstNode.name!)")
+        //print("\(secondNode.name!) hits \(firstNode.name!)")
         
         // This is needed in order to prevent a single contact to be registered multiple times.
         if(updatesCalled == 0) {return} // No real change since last call
@@ -292,7 +294,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Function that is constantly called to see if the game is over
     func gameOverCheck(){
-        var tie = false
         var gameOverMessage = ""
         
         // Starship2 wins
@@ -300,7 +301,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             gameOver = true
             gameOverMessage = "\(Game.🚀2.life) - \(Game.🚀2.name) (Winner) \(Game.🚀1.name) - \(Game.🚀1.life) (Loser)"
             if Game.🚀2.life <= 0 {
-                tie = true
                 gameOverMessage = "Tie game"
             }
         }
@@ -308,7 +308,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             gameOver = true
             gameOverMessage = "\(Game.🚀1.life) - \(Game.🚀1.name) (Winner) \(Game.🚀2.name) - \(Game.🚀2.life) (Loser)"
             if Game.🚀1.life <= 0 {
-                tie = true
                 gameOverMessage = "Tie game"
             }
         }
@@ -353,121 +352,182 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //      based on which students are playing each other.
     func setPlayerClasses() {
 
-        if Game.🚀1.imageName == "Starship-Mr Black" {
+        if Game.🚀1.imageName == "Mr Black" {
             player1Delegate = MrBlack()
         }
-        else if Game.🚀1.imageName == "Starship-Brynne" {
-            //player1Delegate = BrynneAllan()
+        else if Game.🚀1.imageName == "Allan" {
+            //player1Delegate = Allan()
         }
-        else if Game.🚀1.imageName == "Starship-Matthew" {
-            //player1Delegate = MatthewBennett()
+        else if Game.🚀1.imageName == "Apsey" {
+            //player1Delegate = Apsey()
         }
-        else if Game.🚀1.imageName == "Starship-Jacob" {
-            //player1Delegate = JacobBland()
+        else if Game.🚀1.imageName == "Babcock" {
+            //player1Delegate = Babcock()
         }
-        else if Game.🚀1.imageName == "Starship-Kaylee" {
-            //player1Delegate = KayleeBogora()
+        else if Game.🚀1.imageName == "Birley" {
+            //player1Delegate = Birley()
         }
-        else if Game.🚀1.imageName == "Starship-Eric" {
-            //player1Delegate = EricDuberville()
+        else if Game.🚀1.imageName == "Bland" {
+            //player1Delegate = Bland()
         }
-        else if Game.🚀1.imageName == "Starship-Daniel" {
-            //player1Delegate = DanielGordon()
+        else if Game.🚀1.imageName == "Bogora" {
+            //player1Delegate = Bogora()
         }
-        else if Game.🚀1.imageName == "Starship-David" {
-            //player1Delegate = DavidHogan()
+        else if Game.🚀1.imageName == "Brady" {
+            //player1Delegate = Brady()
         }
-        else if Game.🚀1.imageName == "Starship-Oksana" {
-            //player1Delegate = OksanaJohnston()
+        else if Game.🚀1.imageName == "Chen" {
+            //player1Delegate = Chen()
         }
-        else if Game.🚀1.imageName == "Starship-Jason" {
-            //player1Delegate = JasonLittle()
+        else if Game.🚀1.imageName == "Cooke" {
+            //player1Delegate = Cooke()
         }
-        else if Game.🚀1.imageName == "Starship-Jordan" {
-            //player1Delegate = JordanMaloney()
+        else if Game.🚀1.imageName == "Dickson" {
+            //player1Delegate = Dickson()
         }
-        else if Game.🚀1.imageName == "Starship-Greg" {
-            //player1Delegate = GregMitchell()
+        else if Game.🚀1.imageName == "Dopson" {
+            //player1Delegate = Dopson()
         }
-        else if Game.🚀1.imageName == "Starship-Owen" {
-            //player1Delegate = OwenNichols()
+        else if Game.🚀1.imageName == "Ferguson" {
+            //player1Delegate = Ferguson()
         }
-        else if Game.🚀1.imageName == "Starship-Ben" {
-            //player1Delegate = BenSeward()
+        else if Game.🚀1.imageName == "Foster" {
+            //player1Delegate = Foster()
         }
-        else if Game.🚀1.imageName == "Starship-Joey" {
-            //player1Delegate = JoeyTripp()
+        else if Game.🚀1.imageName == "Galazzo" {
+            //player1Delegate = Galazzo()
         }
-        else if Game.🚀1.imageName == "Starship-Dexter" {
-            //player1Delegate = DexterVanZyllDeJong()
+        else if Game.🚀1.imageName == "Garvin" {
+            //player1Delegate = Garvin()
         }
-        else if Game.🚀1.imageName == "Starship-Sherry" {
-            //player1Delegate = SherryWang()
+        else if Game.🚀1.imageName == "Johnston" {
+            //player1Delegate = Johnston()
         }
-        else if Game.🚀1.imageName == "Starship-Spencer" {
-            //player1Delegate = SpencerWright()
+        else if Game.🚀1.imageName == "Kelford" {
+            //player1Delegate = Kelford()
         }
-        else if Game.🚀1.imageName == "Starship-Justin" {
-            //player1Delegate = JustinYanosik()
+        else if Game.🚀1.imageName == "Leung" {
+            //player1Delegate = Leung()
+        }
+        else if Game.🚀1.imageName == "Mai" {
+            //player1Delegate = Mai()
+        }
+        else if Game.🚀1.imageName == "Nichols" {
+            //player1Delegate = Nichols()
+        }
+        else if Game.🚀1.imageName == "Rakus" {
+            //player1Delegate = Rakus()
+        }
+        else if Game.🚀1.imageName == "Smith" {
+            //player1Delegate = Smith()
+        }
+        else if Game.🚀1.imageName == "Snyder" {
+            //player1Delegate = Snyder()
+        }
+        else if Game.🚀1.imageName == "Thibault" {
+            //player1Delegate = Thibault()
+        }
+        else if Game.🚀1.imageName == "Thompson" {
+            //player1Delegate = Thompson()
+        }
+        else if Game.🚀1.imageName == "Tolentino" {
+            //player1Delegate = Tolentino()
+        }
+        else if Game.🚀1.imageName == "Tripp" {
+            //player1Delegate = Tripp()
+        }
+        else if Game.🚀1.imageName == "Yanosik" {
+            //player1Delegate = Yanosik()
         }
 
         
-        if Game.🚀2.imageName == "Starship-Mr Black" {
+        
+        if Game.🚀2.imageName == "Mr Black" {
             player2Delegate = MrBlack()
         }
-        else if Game.🚀2.imageName == "Starship-Brynne" {
-            //player2Delegate = BrynneAllan()
+        else if Game.🚀2.imageName == "Allan" {
+            //player2Delegate = Allan()
         }
-        else if Game.🚀2.imageName == "Starship-Matthew" {
-            //player2Delegate = MatthewBennett()
+        else if Game.🚀2.imageName == "Apsey" {
+            //player2Delegate = Apsey()
         }
-        else if Game.🚀2.imageName == "Starship-Jacob" {
-            //player2Delegate = JacobBland()
+        else if Game.🚀2.imageName == "Babcock" {
+            //player2Delegate = Babcock()
         }
-        else if Game.🚀2.imageName == "Starship-Kaylee" {
-            //player2Delegate = KayleeBogora()
+        else if Game.🚀2.imageName == "Birley" {
+            //player2Delegate = Birley()
         }
-        else if Game.🚀2.imageName == "Starship-Eric" {
-            //player2Delegate = EricDuberville()
+        else if Game.🚀2.imageName == "Bland" {
+            //player2Delegate = Bland()
         }
-        else if Game.🚀2.imageName == "Starship-Daniel" {
-            //player2Delegate = DanielGordon()
+        else if Game.🚀2.imageName == "Bogora" {
+            //player2Delegate = Bogora()
         }
-        else if Game.🚀2.imageName == "Starship-David" {
-            //player2Delegate = DavidHogan()
+        else if Game.🚀2.imageName == "Brady" {
+            //player2Delegate = Brady()
         }
-        else if Game.🚀2.imageName == "Starship-Oksana" {
-            //player2Delegate = OksanaJohnston()
+        else if Game.🚀2.imageName == "Chen" {
+            //player2Delegate = Chen()
         }
-        else if Game.🚀2.imageName == "Starship-Jason" {
-            //player2Delegate = JasonLittle()
+        else if Game.🚀2.imageName == "Cooke" {
+            //player2Delegate = Cooke()
         }
-        else if Game.🚀2.imageName == "Starship-Jordan" {
-            //player2Delegate = JordanMaloney()
+        else if Game.🚀2.imageName == "Dickson" {
+            //player2Delegate = Dickson()
         }
-        else if Game.🚀2.imageName == "Starship-Greg" {
-            //player2Delegate = GregMitchell()
+        else if Game.🚀2.imageName == "Dopson" {
+            //player2Delegate = Dopson()
         }
-        else if Game.🚀2.imageName == "Starship-Owen" {
-            //player2Delegate = OwenNichols()
+        else if Game.🚀2.imageName == "Ferguson" {
+            //player2Delegate = Ferguson()
         }
-        else if Game.🚀2.imageName == "Starship-Ben" {
-            //player2Delegate = BenSeward()
+        else if Game.🚀2.imageName == "Foster" {
+            //player2Delegate = Foster()
         }
-        else if Game.🚀2.imageName == "Starship-Joey" {
-            //player2Delegate = JoeyTripp()
+        else if Game.🚀2.imageName == "Galazzo" {
+            //player2Delegate = Galazzo()
         }
-        else if Game.🚀2.imageName == "Starship-Dexter" {
-            //player2Delegate = DexterVanZyllDeJong()
+        else if Game.🚀2.imageName == "Garvin" {
+            //player2Delegate = Garvin()
         }
-        else if Game.🚀2.imageName == "Starship-Sherry" {
-            //player2Delegate = SherryWang()
+        else if Game.🚀2.imageName == "Johnston" {
+            //player2Delegate = Johnston()
         }
-        else if Game.🚀2.imageName == "Starship-Spencer" {
-            //player2Delegate = SpencerWright()
+        else if Game.🚀2.imageName == "Kelford" {
+            //player2Delegate = Kelford()
         }
-        else if Game.🚀2.imageName == "Starship-Justin" {
-            //player2Delegate = JustinYanosik()
+        else if Game.🚀2.imageName == "Leung" {
+            //player2Delegate = Leung()
+        }
+        else if Game.🚀2.imageName == "Mai" {
+            //player2Delegate = Mai()
+        }
+        else if Game.🚀2.imageName == "Nichols" {
+            //player2Delegate = Nichols()
+        }
+        else if Game.🚀2.imageName == "Rakus" {
+            //player2Delegate = Rakus()
+        }
+        else if Game.🚀2.imageName == "Smith" {
+            //player2Delegate = Smith()
+        }
+        else if Game.🚀2.imageName == "Snyder" {
+            //player2Delegate = Snyder()
+        }
+        else if Game.🚀2.imageName == "Thibault" {
+            //player2Delegate = Thibault()
+        }
+        else if Game.🚀2.imageName == "Thompson" {
+            //player2Delegate = Thompson()
+        }
+        else if Game.🚀2.imageName == "Tolentino" {
+            //player2Delegate = Tolentino()
+        }
+        else if Game.🚀2.imageName == "Tripp" {
+            //player2Delegate = Tripp()
+        }
+        else if Game.🚀2.imageName == "Yanosik" {
+            //player2Delegate = Yanosik()
         }
     }
     
