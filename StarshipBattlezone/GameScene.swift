@@ -37,7 +37,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var gameStarted = false
     
     
-    // ------------- This function is called when the player's have been chosen ----------------
+    // ------------- This function is called once the player's have been chosen ----------------
     //      This is where all of the game variables are initialized and the game is set up
     override func didMove(to view: SKView) {
         self.scene?.isPaused = true   // Pause the game when we first get to the GameScene
@@ -424,6 +424,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else if Game.🚀1.imageName == "Snyder" {
             //player1Delegate = Snyder()
         }
+        else if Game.🚀1.imageName == "Student" {
+            player1Delegate = Student()
+        }
         else if Game.🚀1.imageName == "Thibault" {
             //player1Delegate = Thibault()
         }
@@ -513,6 +516,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if Game.🚀2.imageName == "Snyder" {
             //player2Delegate = Snyder()
+        }
+        else if Game.🚀2.imageName == "Student" {
+            player2Delegate = Student()
         }
         else if Game.🚀2.imageName == "Thibault" {
             //player2Delegate = Thibault()

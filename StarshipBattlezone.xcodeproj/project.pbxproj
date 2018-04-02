@@ -13,6 +13,7 @@
 		F158F99C1AB4851E00AD9688 /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F158F99B1AB4851E00AD9688 /* explosion.mp3 */; };
 		F158F99E1AB4852300AD9688 /* missile.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F158F99D1AB4852300AD9688 /* missile.mp3 */; };
 		F158F9A21AB4C51C00AD9688 /* MrBlack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158F9A11AB4C51C00AD9688 /* MrBlack.swift */; };
+		F17E94B32072AFE400139330 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17E94B22072AFE400139330 /* Student.swift */; };
 		F1BFC43B1AAFA9B200CFDC83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFC43A1AAFA9B200CFDC83 /* AppDelegate.swift */; };
 		F1BFC43D1AAFA9B200CFDC83 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F1BFC43C1AAFA9B200CFDC83 /* GameScene.sks */; };
 		F1BFC43F1AAFA9B200CFDC83 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFC43E1AAFA9B200CFDC83 /* GameScene.swift */; };
@@ -43,6 +44,7 @@
 		F158F99B1AB4851E00AD9688 /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
 		F158F99D1AB4852300AD9688 /* missile.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = missile.mp3; sourceTree = "<group>"; };
 		F158F9A11AB4C51C00AD9688 /* MrBlack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MrBlack.swift; sourceTree = "<group>"; };
+		F17E94B22072AFE400139330 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		F1BFC4351AAFA9B200CFDC83 /* StarshipBattlezone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarshipBattlezone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1BFC4391AAFA9B200CFDC83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1BFC43A1AAFA9B200CFDC83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				F158F9A11AB4C51C00AD9688 /* MrBlack.swift */,
+				F17E94B22072AFE400139330 /* Student.swift */,
 			);
 			name = "Student Classes";
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				F1BFC45F1AAFAB5300CFDC83 /* PlayerPickerViewController.swift in Sources */,
 				F1BFC4651AAFB0CE00CFDC83 /* Missile.swift in Sources */,
 				F1BFC43B1AAFA9B200CFDC83 /* AppDelegate.swift in Sources */,
+				F17E94B32072AFE400139330 /* Student.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
