@@ -424,6 +424,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else if Game.🚀1.imageName == "Snyder" {
             //player1Delegate = Snyder()
         }
+        else if Game.🚀1.imageName == "Student2" {
+            player1Delegate = Student2()
+        }
         else if Game.🚀1.imageName == "Thibault" {
             //player1Delegate = Thibault()
         }
@@ -513,6 +516,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if Game.🚀2.imageName == "Snyder" {
             //player2Delegate = Snyder()
+        }
+        else if Game.🚀2.imageName == "Student2" {
+            player2Delegate = Student2()
         }
         else if Game.🚀2.imageName == "Thibault" {
             //player2Delegate = Thibault()

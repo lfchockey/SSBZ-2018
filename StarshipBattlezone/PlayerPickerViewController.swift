@@ -18,7 +18,7 @@ struct Game {
     static var 🚀2 = Starship(playerNum: 2)
     
     // Array of student names.
-    static var students = ["Mr Black", "Allan", "Apsey", "Babcock", "Birley", "Bland", "Bogora", "Brady", "Chen", "Cooke", "Dickson", "Dopson", "Ferguson", "Foster", "Galazzo", "Garvin", "Johnston", "Kelford", "Leung", "Mai", "Nichols", "Rakus", "Smith", "Snyder", "Thibault", "Thompson", "Tolentino", "Tripp", "Yanosik"]
+    static var students = ["Mr Black", "Allan", "Apsey", "Babcock", "Birley", "Bland", "Bogora", "Brady", "Chen", "Cooke", "Dickson", "Dopson", "Ferguson", "Foster", "Galazzo", "Garvin", "Johnston", "Kelford", "Leung", "Mai", "Nichols", "Rakus", "Smith", "Snyder", "Student2", "Thibault", "Thompson", "Tolentino", "Tripp", "Yanosik"]
     
 }
 
