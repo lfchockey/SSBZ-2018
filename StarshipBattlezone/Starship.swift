@@ -138,7 +138,7 @@ class Starship {
         if newY > 25 {
             newY = 25
         }
-        else if newX < -25 {
+        else if newY < -25 {
             newY = -25
         }
         

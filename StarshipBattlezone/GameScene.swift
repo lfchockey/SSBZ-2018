@@ -60,21 +60,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // The following code allows the background to move behind the Starships
         let bgTexture = SKTexture(imageNamed: "SpaceBackground")
-        let doubleBg = CGFloat(-bgTexture.size().width*2)
-        let bgDuration = TimeInterval(0.1 * bgTexture.size().width)
-        let bgMove = SKAction.moveBy(x: doubleBg, y: 0, duration: bgDuration)
-        let bgReset = SKAction.moveBy(x: -doubleBg, y: 0, duration: 0)
-        let moveBgForever = SKAction.repeatForever(SKAction.sequence([bgMove, bgReset]))
+        //let doubleBg = CGFloat(-bgTexture.size().width*2)
+        //let bgDuration = TimeInterval(0.1 * bgTexture.size().width)
+        //let bgMove = SKAction.moveBy(x: doubleBg, y: 0, duration: bgDuration)
+        //let bgReset = SKAction.moveBy(x: -doubleBg, y: 0, duration: 0)
+        //let moveBgForever = SKAction.repeatForever(SKAction.sequence([bgMove, bgReset]))
         
-        for i in 0..<Int(2 + self.frame.size.width / (bgTexture.size().width * 2)) {
+        //for i in 0..<Int(2 + self.frame.size.width / (bgTexture.size().width * 2)) {
             let sp = SKSpriteNode(texture: bgTexture)
             sp.setScale(1.0)
             sp.zPosition = -20
             sp.anchorPoint = CGPoint.zero
-            sp.position = CGPoint(x: CGFloat(i) * CGFloat(sp.size.width), y: 0)
-            sp.run(moveBgForever)
+            sp.position = CGPoint(x: 0, y: 0)
+            //sp.run(moveBgForever)
             bgLayer.addChild(sp)
-        }
+        //}
 
         // A property of a ViewController that allows user interaction
         //      This is needed to start the game.
