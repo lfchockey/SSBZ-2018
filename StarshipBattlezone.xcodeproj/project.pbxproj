@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F95694A1AB337120097BF1B /* SpaceBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9569491AB337120097BF1B /* SpaceBackground.png */; };
+		3FD15598208F4B17002DBDC3 /* Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD15597208F4B17002DBDC3 /* Tester.swift */; };
 		F158F9981AB375D400AD9688 /* Missiles.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F158F9971AB375D400AD9688 /* Missiles.atlas */; };
 		F158F99A1AB47B9500AD9688 /* explosions.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F158F9991AB47B9500AD9688 /* explosions.atlas */; };
 		F158F99C1AB4851E00AD9688 /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F158F99B1AB4851E00AD9688 /* explosion.mp3 */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		3F9569491AB337120097BF1B /* SpaceBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpaceBackground.png; sourceTree = "<group>"; };
+		3FD15597208F4B17002DBDC3 /* Tester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tester.swift; sourceTree = "<group>"; };
 		F158F9971AB375D400AD9688 /* Missiles.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Missiles.atlas; sourceTree = "<group>"; };
 		F158F9991AB47B9500AD9688 /* explosions.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = explosions.atlas; sourceTree = "<group>"; };
 		F158F99B1AB4851E00AD9688 /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				F158F9A11AB4C51C00AD9688 /* MrBlack.swift */,
+				3FD15597208F4B17002DBDC3 /* Tester.swift */,
 			);
 			name = "Student Classes";
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				F1BFC4411AAFA9B200CFDC83 /* GameViewController.swift in Sources */,
 				F1BFC45F1AAFAB5300CFDC83 /* PlayerPickerViewController.swift in Sources */,
 				F1BFC4651AAFB0CE00CFDC83 /* Missile.swift in Sources */,
+				3FD15598208F4B17002DBDC3 /* Tester.swift in Sources */,
 				F1BFC43B1AAFA9B200CFDC83 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
