@@ -11,6 +11,7 @@ import UIKit
 import SpriteKit
 import Darwin
 
+// Test on Apr 24
 
 class Tester: gameSceneDelegate {
     
